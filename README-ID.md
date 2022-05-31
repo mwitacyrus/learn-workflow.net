@@ -6,24 +6,23 @@
   <a href="#file-structure">Structure</a> •
   <a href="#snapshot">Snapshot</a><br>
   [<a href="README-ZH.md">中文</a>] | [<a href="README-ES.md">Español</a>] | [<a href="README-FR.md">Français</a>] | [<a href="README-DE.md">Deutsch</a>] | [<a href="README-PL.md">Polski</a>] | [<a href="README-ID.md">Indonesian</a>] | [<a href="README-FI.md">Suomi</a>] | [<a href="README-ML.md">മലയാളം</a>] | [<a href="README-JP.md">日本語</a>] | [<a href="README-NL.md">Nederlands</a>] | [<a href="README-IT.md">Italiano</a>] | [<a href="README-RU.md">Русский</a>] | [<a href="README-PTBR.md">Português (Brasil)</a>] | [<a href="README-EO.md">Esperanto</a>] | [<a href="README-KR.md">한국어</a>]<br>
-  <b>We need your help to translate this README, <a href="https://github.com/rustdesk/rustdesk/tree/master/src/lang">RustDesk UI</a> and <a href="https://github.com/rustdesk/doc.rustdesk.com">Doc</a> to your native language</b>
+  <b>Kami membutuhkan bantuan Anda untuk menerjemahkan README ini dan <a href="https://github.com/rustdesk/rustdesk/tree/master/src/lang">RustDesk UI</a> ke bahasa asli anda</b>
 </p>
 
-Chat with us: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/rustdesk) | [Reddit](https://www.reddit.com/r/rustdesk)
-
+Birbincang bersama kami: [Discord](https://discord.gg/nDceKgxnkV) | [Reddit](https://www.reddit.com/r/rustdesk)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I04VU09)
 
-Yet another remote desktop software, written in Rust. Works out of the box, no configuration required. You have full control of your data, with no concerns about security. You can use our rendezvous/relay server, [set up your own](https://rustdesk.com/server), or [write your own rendezvous/relay server](https://github.com/rustdesk/rustdesk-server-demo).
+Perangkat lunak desktop jarak jauh lainnya, ditulis dengan Rust. Bekerja begitu saja, tidak memerlukan konfigurasi. Anda memiliki kendali penuh atas data Anda, tanpa khawatir tentang keamanan. Anda dapat menggunakan server rendezvous/relay kami, [konfigurasi server sendiri](https://rustdesk.com/server), or [tulis rendezvous/relay server anda sendiri](https://github.com/rustdesk/rustdesk-server-demo).
 
-RustDesk welcomes contribution from everyone. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for help getting started.
+RustDesk menyambut baik kontribusi dari semua orang. Lihat [`CONTRIBUTING.md`](CONTRIBUTING.md) untuk membantu sebelum memulai.
 
 [**BINARY DOWNLOAD**](https://github.com/rustdesk/rustdesk/releases)
 
-## Free Public Servers
+## Publik Server Gratis
 
-Below are the servers you are using for free, it may change along the time. If you are not close to one of these, your network may be slow.
-| Location | Vendor | Specification |
+Di bawah ini adalah server yang bisa Anda gunakan secara gratis, dapat berubah seiring waktu. Jika Anda tidak dekat dengan salah satu dari ini, jaringan Anda mungkin lambat.
+| Lokasi | Vendor | Spesifikasi |
 | --------- | ------------- | ------------------ |
 | Seoul | AWS lightsail | 1 VCPU / 0.5GB RAM |
 | Singapore | Vultr | 1 VCPU / 1GB RAM |
@@ -31,28 +30,24 @@ Below are the servers you are using for free, it may change along the time. If y
 
 ## Dependencies
 
-Desktop versions use [sciter](https://sciter.com/) for GUI, please download sciter dynamic library yourself.
+Versi desktop menggunakan [sciter](https://sciter.com/) untuk GUI, silahkan download sendiri sciter dynamic library.
 
 [Windows](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.win/x64/sciter.dll) |
 [Linux](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so) |
 [MacOS](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.osx/libsciter.dylib)
 
-Mobile versions use Flutter. We will migrate desktop version from Sciter to Flutter.
+## Langkah untuk RAW Build
 
-## Raw steps to build
+- Siapkan env pengembangan Rust dan C++ build env
 
-- Prepare your Rust development env and C++ build env
-
-- Install [vcpkg](https://github.com/microsoft/vcpkg), and set `VCPKG_ROOT` env variable correctly
+- Install [vcpkg](https://github.com/microsoft/vcpkg), dan arahkan `VCPKG_ROOT` env variable dengan benar
 
   - Windows: vcpkg install libvpx:x64-windows-static libyuv:x64-windows-static opus:x64-windows-static
   - Linux/MacOS: vcpkg install libvpx libyuv opus
 
-- run `cargo run`
+- jalankan `cargo run`
 
-## [Build](https://rustdesk.com/docs/en/dev/build/)
-
-## How to build on Linux
+## Bagaimana Build di Linux
 
 ### Ubuntu 18 (Debian 10)
 
@@ -84,7 +79,7 @@ export VCPKG_ROOT=$HOME/vcpkg
 vcpkg/vcpkg install libvpx libyuv opus
 ```
 
-### Fix libvpx (For Fedora)
+### Perbaiki libvpx (Untuk Fedora)
 
 ```sh
 cd vcpkg/buildtrees/libvpx/src
@@ -110,13 +105,13 @@ mv libsciter-gtk.so target/debug
 VCPKG_ROOT=$HOME/vcpkg cargo run
 ```
 
-### Change Wayland to X11 (Xorg)
+### Ubah Wayland menjadi X11 (Xorg)
 
-RustDesk does not support Wayland. Check [this](https://docs.fedoraproject.org/en-US/quick-docs/configuring-xorg-as-default-gnome-session/) to configuring Xorg as the default GNOME session.
+RustDesk tidak mendukung Wayland. Cek [ini](https://docs.fedoraproject.org/en-US/quick-docs/configuring-xorg-as-default-gnome-session/) untuk mengonfigurasi Xorg sebagai sesi GNOME default.
 
-## How to build with Docker
+## Bagaimana build dengan Docker
 
-Begin by cloning the repository and building the docker container:
+Mulailah dengan mengkloning repositori dan build dengan docker container:
 
 ```sh
 git clone https://github.com/rustdesk/rustdesk
@@ -124,40 +119,38 @@ cd rustdesk
 docker build -t "rustdesk-builder" .
 ```
 
-Then, each time you need to build the application, run the following command:
+Kemudian, setiap kali Anda perlu build aplikasi, jalankan perintah berikut:
 
 ```sh
 docker run --rm -it -v $PWD:/home/user/rustdesk -v rustdesk-git-cache:/home/user/.cargo/git -v rustdesk-registry-cache:/home/user/.cargo/registry -e PUID="$(id -u)" -e PGID="$(id -g)" rustdesk-builder
 ```
 
-Note that the first build may take longer before dependencies are cached, subsequent builds will be faster. Additionally, if you need to specify different arguments to the build command, you may do so at the end of the command in the `<OPTIONAL-ARGS>` position. For instance, if you wanted to build an optimized release version, you would run the command above followed by `---release`. The resulting executable will be available in the target folder on your system, and can be run with:
+Perhatikan bahwa build pertama mungkin memerlukan waktu lebih lama sebelum dependensi di-cache, build berikutnya akan lebih cepat. Selain itu, jika Anda perlu menentukan argumen yang berbeda untuk perintah build, Anda dapat melakukannya di akhir perintah di posisi `<OPTIONAL-ARGS>`. Misalnya, jika Anda ingin membangun versi rilis yang dioptimalkan, Anda akan menjalankan perintah di atas diikuti oleh `---release`. Hasil eksekusi akan tersedia pada target folder di sistem anda, dan dapat dijalankan dengan:
 
 ```sh
 target/debug/rustdesk
 ```
 
-Or, if you're running a release executable:
+Atau, jika Anda menjalankan rilis yang dapat dieksekusi:
 
 ```sh
 target/release/rustdesk
 ```
 
-Please ensure that you are running these commands from the root of the RustDesk repository, otherwise the application may be unable to find the required resources. Also note that other cargo subcommands such as `install` or `run` are not currently supported via this method as they would install or run the program inside the container instead of the host.
+Harap pastikan bahwa Anda menjalankan perintah ini dari root repositori RustDesk, jika tidak, aplikasi mungkin tidak dapat menemukan sumber daya yang diperlukan. Perhatikan juga perintah cargo seperti `install` atau `run` saat ini tidak didukung melalui metode ini karena mereka akan menginstal atau menjalankan program di dalam container bukan pada host.
 
-## File Structure
+## Struktur File
 
-- **[libs/hbb_common](https://github.com/rustdesk/rustdesk/tree/master/libs/hbb_common)**: video codec, config, tcp/udp wrapper, protobuf, fs functions for file transfer, and some other utility functions
+- **[libs/hbb_common](https://github.com/rustdesk/rustdesk/tree/master/libs/hbb_common)**: video codec, config, tcp/udp wrapper, protobuf, fs functions untuk transfer file, dan beberapa fungsi utilitas lainnya
 - **[libs/scrap](https://github.com/rustdesk/rustdesk/tree/master/libs/scrap)**: screen capture
-- **[libs/enigo](https://github.com/rustdesk/rustdesk/tree/master/libs/enigo)**: platform specific keyboard/mouse control
+- **[libs/enigo](https://github.com/rustdesk/rustdesk/tree/master/libs/enigo)**: spesifikasi platform keyboard/mouse control
 - **[src/ui](https://github.com/rustdesk/rustdesk/tree/master/src/ui)**: GUI
-- **[src/server](https://github.com/rustdesk/rustdesk/tree/master/src/server)**: audio/clipboard/input/video services, and network connections
+- **[src/server](https://github.com/rustdesk/rustdesk/tree/master/src/server)**: audio/clipboard/input/video services, dan network connections
 - **[src/client.rs](https://github.com/rustdesk/rustdesk/tree/master/src/client.rs)**: start a peer connection
-- **[src/rendezvous_mediator.rs](https://github.com/rustdesk/rustdesk/tree/master/src/rendezvous_mediator.rs)**: Communicate with [rustdesk-server](https://github.com/rustdesk/rustdesk-server), wait for remote direct (TCP hole punching) or relayed connection
-- **[src/platform](https://github.com/rustdesk/rustdesk/tree/master/src/platform)**: platform specific code
-- **[flutter](https://github.com/rustdesk/rustdesk/tree/master/flutter)**: Flutter code for mobile
-- **[flutter/web/js](https://github.com/rustdesk/rustdesk/tree/master/flutter/web/js)**: Javascript for Flutter web client
+- **[src/rendezvous_mediator.rs](https://github.com/rustdesk/rustdesk/tree/master/src/rendezvous_mediator.rs)**: Komunikasi dengan [rustdesk-server](https://github.com/rustdesk/rustdesk-server), menunggu untuk remote direct (TCP hole punching) atau relayed connection
+- **[src/platform](https://github.com/rustdesk/rustdesk/tree/master/src/platform)**: kode khusus platform
 
-## Snapshot
+## Snapshots
 
 ![image](https://user-images.githubusercontent.com/71636191/113112362-ae4deb80-923b-11eb-957d-ff88daad4f06.png)
 
